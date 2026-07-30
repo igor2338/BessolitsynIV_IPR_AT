@@ -19,6 +19,15 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    env:
+      TRELLO_USER: ${{secrets.TRELLO_USER}}
+      TRELLO_PASSWORD: ${{secrets.TRELLO_PASSWORD}}
+      USER: ${{secrets.USER}}
+      PASSWORD: ${{secrets.PASSWORD}}
+      DB_USER: ${{secrets.DB_USER}}
+      DB_PASSWORD: ${{secrets.DB_PASSWORD}}
+      DB_URL: ${{secrets.DB_URL}}
+
     steps:
     - uses: actions/checkout@v4
     - name: Set up JDK 17
@@ -28,4 +37,4 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Run tests
-      run: mvn clean test
+      run: mvn clean test -DtrelloUser=$TRELLO_USER -DtrelloPassword=$TRELLO_PASSWORD -Duser=$USER -Dpassword=$PASSWORD -DdbUser=$DB_USER -DdbPassword=$DB_PASSWORD -DdbUrl=$DB_URL
