@@ -108,7 +108,7 @@ public class HomeTest extends BaseTest {
     @Test(testName = "Проверка hover эффекта бело-синих кнопок", priority = 12,
             description = "Проверка hover эффекта бело-синих кнопок")
     @Description("Проверка hover эффекта бело-синих кнопок")
-    public void checkHoverBlueButtonsTest() {
+    public void checkHoverWhiteAndBlueButtonsTest() {
         homePage.openHomePage();
         homePage.isHomePageOpened();
         homePage.checkHoverWhiteAndBlueButtons();
@@ -117,7 +117,7 @@ public class HomeTest extends BaseTest {
     @Test(testName = "Проверка кликабельности бело-синих кнопок", priority = 13,
             description = "Проверка кликабельности бело-синих кнопок")
     @Description("Проверка кликабельности бело-синих кнопок")
-    public void clickBlueButtonsTest() {
+    public void clickWhiteAndBlueButtonsTest() {
         homePage.openHomePage();
         homePage.isHomePageOpened();
         homePage.clickWhiteAndBlueButtons();

@@ -42,11 +42,11 @@ public class HomePage {
             TAB_FEATURES_AUTOMATION = "//nav//a//div//p[text()='Automation']",
             TAB_FEATURES_AUTOMATION_CHECK = "//h1[text()='Automate your workflow with Trello']",
             TAB_FEATURES_TEMPLATES = "//nav//a//div//p[text()='Templates']",
-            TAB_FEATURES_TEMPLATES_CHECK = "//div//h1[text()='Шаблоны для Trello']",
+            TAB_FEATURES_TEMPLATES_CHECK = "//span[@data-testid='SearchIcon']",
             TAB_FEATURES_INTEGRATION = "//nav//a//div//p[text()='Integrations']",
             TAB_FEATURES_INTEGRATION_CHECK = "//h1[text()='Connect Trello to everything']",
             TAB_FEATURES_POWER = "//nav//a//div//p[text()='Power-Ups']",
-            TAB_FEATURES_POWER_CHECK = "//div//h1[text()='Улучшения для Trello']",
+            TAB_FEATURES_POWER_CHECK = "//span[@data-testid='PowerUpIcon']",
             TAB_FEATURES_PLANNER = "//nav//a//div//p[text()='Planner']",
             TAB_FEATURES_PLANNER_CHECK = "//h1[text()='Trello Planner']",
             TAB_SOLUTIONS_MARKET = "//nav//a//p[text()='Marketing teams']",
@@ -88,9 +88,9 @@ public class HomePage {
             DOT_BUTTON = "[data-testid^='dot_']",
             DOT_SLIDE = "//h4[text()='",
             DOT_IMG = "img[alt='",
-            WHITE_BLUE_BUTTON_INTEGRATIONS = "a[href='/integrations']:not([data-testid='ui-nav-link']):not([tabindex='-1'])",
-            WHITE_BLUE_BUTTON_AUTOMATION = "a[href='/butler-automation']:not([data-testid='ui-nav-link']):not([tabindex='-1'])",
-            WHITE_BLUE_BUTTON_PRICING = "a[href='/pricing']:not([data-testid='ui-nav-banner-button']):not([class])",
+            WHITE_BLUE_BUTTON_INTEGRATIONS = "(//a[@data-uuid and @href='/integrations'])[3]",
+            WHITE_BLUE_BUTTON_AUTOMATION = "(//a[@data-uuid and @href='/butler-automation'])[3]",
+            WHITE_BLUE_BUTTON_PRICING = "(//a[@data-uuid and @href='/pricing'])[3]",
             WHITE_BLUE_BUTTON_INTEGRATIONS_CHECK = "//h2[text()='Featured integrations']",
             WHITE_BLUE_BUTTON_AUTOMATION_CHECK = "//h1[text()='Automate your workflow with Trello']",
             WHITE_BLUE_BUTTON_PRICING_CHECK = "//h1[text()='Trello your way.']";
@@ -170,16 +170,16 @@ public class HomePage {
         steps.forEach((buttonLocator, elementLocator) -> {
             log.info("Click Features");
             $x(TAB_FEATURES).click();
-            sleep(4000);
+            sleep(1000);
             log.info("Click on links Features");
             $x(buttonLocator).click();
-            sleep(4000);
+            sleep(1000);
             $x(elementLocator).shouldBe(visible);
-            sleep(4000);
+            sleep(2000);
             log.info("back Features, refresh");
             back();
             refresh();
-            sleep(4000);
+            sleep(2000);
         });
     }
 
@@ -196,17 +196,17 @@ public class HomePage {
         steps.forEach((buttonLocator, elementLocator) -> {
             log.info("Click Solutions");
             $x(TAB_SOLUTIONS).click();
-            sleep(4000);
+            sleep(1000);
             log.info("Click on links Solutions");
             $x(buttonLocator).click();
-            sleep(4000);
+            sleep(1000);
             log.info("Check element Solutions");
             $x(elementLocator).shouldBe(visible);
-            sleep(4000);
+            sleep(2000);
             log.info("back Solutions, refresh");
             back();
             refresh();
-            sleep(4000);
+            sleep(2000);
         });
     }
 
@@ -222,17 +222,17 @@ public class HomePage {
         steps.forEach((buttonLocator, elementLocator) -> {
             log.info("Click Plans");
             $x(TAB_PLANS).click();
-            sleep(4000);
+            sleep(1000);
             log.info("Click on links Plans");
             $x(buttonLocator).click();
-            sleep(4000);
+            sleep(1000);
             log.info("Check element links Plans");
             $x(elementLocator).shouldBe(visible);
-            sleep(4000);
+            sleep(2000);
             log.info("back Plans, refresh");
             back();
             refresh();
-            sleep(4000);
+            sleep(2000);
         });
     }
 
@@ -249,17 +249,17 @@ public class HomePage {
         steps.forEach((buttonLocator, elementLocator) -> {
             log.info("Click Resources");
             $x(TAB_RESOURCES).click();
-            sleep(4000);
+            sleep(1000);
             log.info("Click on links Resources");
             $x(buttonLocator).click();
-            sleep(4000);
+            sleep(1000);
             log.info("Check element");
             $x(elementLocator).shouldBe(visible);
-            sleep(4000);
+            sleep(2000);
             log.info("back Resources, refresh");
             back();
             refresh();
-            sleep(4000);
+            sleep(2000);
         });
     }
 
@@ -309,13 +309,13 @@ public class HomePage {
         String hoverColor = "rgba(222, 235, 255, 1)";
         hoverElements.forEach(selector -> {
             log.info("Check default color");
-            $(selector).shouldBe(Condition.exist).shouldHave(Condition.cssValue("background-color", normalColor));
+            $x(selector).shouldBe(Condition.exist).shouldHave(Condition.cssValue("background-color", normalColor));
             sleep(2000);
             log.info("Cursor on the button");
-            $(selector).hover();
+            $x(selector).hover();
             sleep(2000);
             log.info("Check color hover");
-            $(selector).shouldBe(Condition.exist).shouldHave(Condition.cssValue("background-color", hoverColor));
+            $x(selector).shouldBe(Condition.exist).shouldHave(Condition.cssValue("background-color", hoverColor));
             sleep(2000);
             log.info("Cursor on body");
             $("body").hover();
