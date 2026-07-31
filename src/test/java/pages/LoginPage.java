@@ -32,7 +32,7 @@ public class LoginPage {
             BUTTON_APPLE = "//span[text()='Apple']",
             BUTTON_SLACK = "//span[text()='Slack']",
             FORGOT_PASS_CHECK_ELEMENT = "#reset-password-email-submit",
-            AUTHORIZATION_CHECK_TWO_FACTOR = "div[data-testid='header-suffix']";
+            AUTHORIZATION_CHECK_TWO_FACTOR = "div[data-testid='otp-input-index-0-container']";
 
     @Step("Проверка отображения элемента 'Войдите, чтобы продолжить'")
     public void checkLoginToContinueElement() {
@@ -110,6 +110,6 @@ public class LoginPage {
         $(BUTTON_CONTINUE_LOGIN).shouldBe().click();
         sleep(2000);
         log.info("Check two-factor message");
-        $x(AUTHORIZATION_CHECK_TWO_FACTOR).shouldBe(Condition.exist);
+        $(AUTHORIZATION_CHECK_TWO_FACTOR).shouldBe(Condition.exist);
     }
 }

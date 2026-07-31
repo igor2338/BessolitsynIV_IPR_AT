@@ -88,9 +88,9 @@ public class HomePage {
             DOT_BUTTON = "[data-testid^='dot_']",
             DOT_SLIDE = "//h4[text()='",
             DOT_IMG = "img[alt='",
-            WHITE_BLUE_BUTTON_INTEGRATIONS = "(//a[@data-uuid and @href='/integrations'])[3]",
-            WHITE_BLUE_BUTTON_AUTOMATION = "(//a[@data-uuid and @href='/butler-automation'])[3]",
-            WHITE_BLUE_BUTTON_PRICING = "(//a[@data-uuid and @href='/pricing'])[3]",
+            WHITE_BLUE_BUTTON_INTEGRATIONS = "//a[@data-uuid and @href='/integrations']/child::span/parent::a",
+            WHITE_BLUE_BUTTON_AUTOMATION = "//a[@data-uuid and @href='/butler-automation']/child::span/parent::a",
+            WHITE_BLUE_BUTTON_PRICING = "//div[@textsize='Small']/following::div/child::a[@href='/pricing']",
             WHITE_BLUE_BUTTON_INTEGRATIONS_CHECK = "//h2[text()='Featured integrations']",
             WHITE_BLUE_BUTTON_AUTOMATION_CHECK = "//h1[text()='Automate your workflow with Trello']",
             WHITE_BLUE_BUTTON_PRICING_CHECK = "//h1[text()='Trello your way.']";
