@@ -20,11 +20,11 @@ public class LoginPage {
     private static final String
             ELEMENT_LOG_IN_MESSAGE = "div[data-testid='header-suffix'][id='ProductHeadingSuffix']",
             ELEMENT_PLACEHOLDER_MAIL = "#username-uid1",
-            ELEMENT_PLACEHOLDER_PASS = "#password]",
+            ELEMENT_PLACEHOLDER_PASS = "#password",
             BUTTON_CONTINUE_LOGIN = "#login-submit",
             ELEMENT_RESET_PASS = "#resetPassword",
             ERROR_MESSAGE_EMPTY_EMAIL = "#username-uid1-error",
-            ERROR_MESSAGE_INCORRECT_EMAIL = "//div//div//div//div[contains(text(),'«@»')]",
+            ERROR_MESSAGE_INCORRECT_EMAIL = "//div//div//div//div[contains(text(),'@')]",
             ELEMENT_CHECKBOX_REMEMBER = "//input[@type='checkbox'] [@name='remember']",
             BUTTON_PASSKEY = "//span[text()='Passkey']",
             BUTTON_GOOGLE = "//span[text()='Google']",
@@ -102,7 +102,7 @@ public class LoginPage {
         sleep(2000);
         log.info("Click button continue");
         $(BUTTON_CONTINUE_LOGIN).shouldBe().click();
-        sleep(4000);
+        sleep(8000);
         log.info("Password entry");
         $(ELEMENT_PLACEHOLDER_PASS).setValue(trelloPassword);
         sleep(2000);

@@ -8,12 +8,12 @@
     <test name="Chrome">
         <classes>
             <class name="tests.ui.HomeTest"/>
+            <class name="tests.ui.LoginTest"/>
             <parameter name="browser" value="chrome"/>
         </classes>
     </test>
     <test name="Firefox">
         <classes>
-            <class name="tests.ui.LoginTest"/>
             <parameter name="browser" value="firefox"/>
         </classes>
     </test>

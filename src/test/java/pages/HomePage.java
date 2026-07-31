@@ -147,13 +147,23 @@ public class HomePage {
 
     @Step("Проверка кнопки Sign up")
     public void checkButtonSignUp() {
-        log.info("Check ButtonSignUp");
         String buttonSelector = SIGN_UP_BUTTON;
+        log.info("Check button SignUp [0]");
+        $$x(buttonSelector).get(0).shouldBe(visible);
+        log.info("Click button SignUp [0]");
         $$x(buttonSelector).get(0).click();
+        sleep(2000);
+        log.info("Check url [0]");
         webdriver().shouldHave(WebDriverConditions.urlContaining(SIGN_UP_BUTTON_CHECK_URL));
         back();
-        $$x(buttonSelector).get(0).shouldBe(visible);
+        refresh();
+        sleep(8000);
+        log.info("Check button SignUp [1]");
+        $$x(buttonSelector).get(1).shouldBe(visible);
+        log.info("Click button SignUp [1]");
         $$x(buttonSelector).get(1).click();
+        sleep(2000);
+        log.info("Check url [1]");
         webdriver().shouldHave(WebDriverConditions.urlContaining(SIGN_UP_BUTTON_CHECK_URL));
         back();
     }
