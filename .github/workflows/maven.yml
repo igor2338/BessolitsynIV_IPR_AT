@@ -37,7 +37,7 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Run tests
-      run: mvn clean test -DtrelloUser=$TRELLO_USER -DtrelloPassword=$TRELLO_PASSWORD -Duser=$USER -Dpassword=$PASSWORD -DdbUser=$DB_USER -DdbPassword=$DB_PASSWORD -DdbUrl=$DB_URL
+      run: mvn clean test -DsuiteXmlFile=CrossBrowser.xml -DtrelloUser=$TRELLO_USER -DtrelloPassword=$TRELLO_PASSWORD -Duser=$USER -Dpassword=$PASSWORD -DdbUser=$DB_USER -DdbPassword=$DB_PASSWORD -DdbUrl=$DB_URL
 
     - name: Get Allure history
       uses: actions/checkout@v2

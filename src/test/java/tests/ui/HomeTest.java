@@ -88,7 +88,6 @@ public class HomeTest extends BaseTest {
         homePage.checkPlaceholder();
     }
 
-    @Ignore("Не отрабатывает в GitHub Action")
     @Test(testName = "Проверка кликабельности кнопки SignUp", priority = 10,
             description = "Проверка кликабельности кнопки SignUp")
     @Description("Проверка кликабельности кнопки SignUp")
@@ -107,7 +106,6 @@ public class HomeTest extends BaseTest {
         homePage.clickDotButtons();
     }
 
-    @Ignore("Не отрабатывает в GitHub Action")
     @Test(testName = "Проверка hover эффекта бело-синих кнопок", priority = 12,
             description = "Проверка hover эффекта бело-синих кнопок")
     @Description("Проверка hover эффекта бело-синих кнопок")
