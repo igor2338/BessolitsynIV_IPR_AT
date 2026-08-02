@@ -41,7 +41,7 @@ public class CarTest {
     @Test(priority = 3,
             description = "Тест обновления данных автомобиля")
     @Description("Проверка изменения модели автомобиля с 'Karina' на 'Corolla' через API")
-    public void updateUser() {
+    public void updateCar() {
         CarAdapter carAdapter = new CarAdapter();
         Car car = Car.builder()
                 .id(23)

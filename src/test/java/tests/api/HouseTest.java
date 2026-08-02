@@ -53,24 +53,16 @@ public class HouseTest {
     @Test(priority = 2,
             description = "Получение информации о созданном доме")
     @Description("Проверка корректности данных дома после создания (ожидаемая цена: 123124)")
-    public void getUser() {
+    public void getHouse() {
         HouseAdapter houseAdapter = new HouseAdapter();
         House house = houseAdapter.getHouse(id);
         Assert.assertEquals(house.getPrice(), 123124);
     }
 
-    @Test(priority = 4,
-            description = "Удаление дома")
-    @Description("Проверка удаления созданного дома по ID")
-    public void deleteUser() {
-        UserAdapter userAdapter = new UserAdapter();
-        userAdapter.deleteUser(id);
-    }
-
     @Test(priority = 3,
             description = "Обновление информации о доме")
     @Description("Изменение цены дома с 123124 на 99999 и проверка обновления")
-    public void updateUser() {
+    public void updateHouse() {
         HouseAdapter houseAdapter = new HouseAdapter();
         House house = House.builder()
                 .id(23)
@@ -97,4 +89,13 @@ public class HouseTest {
         House update = houseAdapter.updateHouse(house, id);
         Assert.assertEquals(update.getPrice(), 99999);
     }
+
+    @Test(priority = 4,
+            description = "Удаление дома")
+    @Description("Проверка удаления созданного дома по ID")
+    public void deleteHouse() {
+        HouseAdapter houseAdapter = new HouseAdapter();
+        houseAdapter.deleteHouse(id);
+    }
+
 }

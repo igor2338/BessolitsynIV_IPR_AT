@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="BessolitsynIV_IPR_AT Test" thread-count="2" parallel="none">
+<suite name="BessolitsynIV_IPR_AT Test" thread-count="2" parallel="tests">
     <listeners>
         <listener class-name="listeners.AnnotationTransformer"/>
         <listener class-name="listeners.TestListener"/>
@@ -14,6 +14,9 @@
     </test>
     <test name="Firefox">
         <classes>
+            <class name="tests.api.CarTest"/>
+            <class name="tests.api.HouseTest"/>
+            <class name="tests.api.UserTest"/>
             <parameter name="browser" value="firefox"/>
         </classes>
     </test>

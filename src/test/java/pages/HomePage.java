@@ -1,11 +1,9 @@
 package pages;
 
-import com.codeborne.selenide.CollectionCondition;
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.ElementsCollection;
-import com.codeborne.selenide.WebDriverConditions;
+import com.codeborne.selenide.*;
 import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
+import org.testng.Assert;
 import tests.ui.SlideData;
 
 import java.time.Duration;
@@ -93,7 +91,8 @@ public class HomePage {
             WHITE_BLUE_BUTTON_PRICING = "//div[@textsize='Small']/following::div/child::a[@href='/pricing']",
             WHITE_BLUE_BUTTON_INTEGRATIONS_CHECK = "//h2[text()='Featured integrations']",
             WHITE_BLUE_BUTTON_AUTOMATION_CHECK = "//h1[text()='Automate your workflow with Trello']",
-            WHITE_BLUE_BUTTON_PRICING_CHECK = "//h1[text()='Trello your way.']";
+            WHITE_BLUE_BUTTON_PRICING_CHECK = "//h1[text()='Trello your way.']",
+            WHITE_BLUE_BUTTON_AUX_ELEMENT = "//div//h3[text() = 'Integrations']";
 
     @Step("Открытие главной страницы")
     public void openHomePage() {
@@ -318,14 +317,19 @@ public class HomePage {
         String normalColor = "rgba(255, 255, 255, 1)";
         String hoverColor = "rgba(222, 235, 255, 1)";
         hoverElements.forEach(selector -> {
+            var button = $x(selector);
+            log.info("Scroll to element");
+            $x(WHITE_BLUE_BUTTON_AUX_ELEMENT).scrollIntoView(true);
+            log.info("Check visibility element");
+            button.shouldBe(Condition.exist).shouldBe(Condition.visible);
             log.info("Check default color");
-            $x(selector).shouldBe(Condition.exist).shouldHave(Condition.cssValue("background-color", normalColor));
+            button.shouldBe(Condition.exist).shouldHave(Condition.cssValue("background-color", normalColor));
             sleep(2000);
             log.info("Cursor on the button");
-            $x(selector).hover();
-            sleep(2000);
+            button.hover();
+            sleep(4000);
             log.info("Check color hover");
-            $x(selector).shouldBe(Condition.exist).shouldHave(Condition.cssValue("background-color", hoverColor));
+            button.shouldBe(Condition.exist).shouldHave(Condition.cssValue("background-color", hoverColor));
             sleep(2000);
             log.info("Cursor on body");
             $("body").hover();
